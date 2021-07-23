@@ -15,10 +15,9 @@ class Video:
         # in case the caller changes the 'video_tags' they passed to us
         self._tags = tuple(video_tags)
         
-    # def __str__(self):
-    #     tag_string = ' '.join(self._tags)
-    #     result = f'{self.title} ({self.video_id}) [{tag_string}]'
-    #     return result
+    def __str__(self):
+        tags = ''.join(self._tags).replace('#', ' #').lstrip()
+        return f'{self._title} ({self._video_id}) [{tags}]'
 
     @property
     def title(self) -> str:
